@@ -1,22 +1,18 @@
 pipeline {
-    agent any
-
+    agent {
+        docker {
+            image 'python:3.11-slim'
+        }
+    }
     stages {
-        stage('Setup Python Env') {
+        stage('Install Dependencies') {
             steps {
-                echo '🐍 Setting up Python...'
-                sh '''
-                    apt update
-                    apt install -y python3 python3-pip
-                    pip3 install -r requirements.txt
-                '''
+                sh 'pip install -r requirements.txt'
             }
         }
-
         stage('Run Application') {
             steps {
-                echo '🚀 Running Python App...'
-                sh 'python3 app.py'
+                sh 'python app.py'
             }
         }
     }
