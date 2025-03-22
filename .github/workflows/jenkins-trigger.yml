@@ -11,4 +11,4 @@ jobs:
     steps:
       - name: Trigger Jenkins
         run: |
-          curl -X POST JENKINS_URL/job/YOUR_JOB_NAME/build?token=YOUR_JENKINS_TOKEN
+          curl -X POST http://localhost:8080/job/test-demo/build?token=115c0da7875c5c16bd0078d5abb0c83d98
