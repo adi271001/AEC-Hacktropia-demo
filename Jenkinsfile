@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/YOUR_USERNAME/simple-jenkins-demo.git'
+                git 'https://github.com/adi271001/AEC-Hacktropia-demo.git'
             }
         }
 
