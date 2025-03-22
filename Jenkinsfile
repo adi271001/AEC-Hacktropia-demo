@@ -3,8 +3,8 @@ pipeline {
     stages {
         stage('Install Deps') {
             steps {
-                sh 'python --version'
-                sh 'pip install -r requirements.txt'
+                sh 'python3 --version'
+                sh 'pip3 install -r requirements.txt'
             }
         }
         stage('Run App') {
