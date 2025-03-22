@@ -1,16 +1,15 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'python:3.11-slim'
+        }
+    }
     stages {
         stage('Install Dependencies') {
-          steps {
-            sh '''
-              python3 -m venv venv
-              . venv/bin/activate
-              pip install -r requirements.txt
-            '''
-          }
+            steps {
+                sh 'pip install -r requirements.txt'
+            }
         }
-
         stage('Run Application') {
             steps {
                 sh 'python app.py'
